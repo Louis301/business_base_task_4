@@ -2,7 +2,8 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use Bryanjhv\SlimSession\Session;
+// use Bryanjhv\SlimSession\Session;
+use Slim\Middleware\Session;
 use App\Controllers\RequestController;
 use App\Middleware\AuthMiddleware;
 
