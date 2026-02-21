@@ -1,10 +1,10 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+
 use Slim\Factory\AppFactory;
 use Bryanjhv\SlimSession\Session;
 use App\Controllers\RequestController;
 use App\Middleware\AuthMiddleware;
-
-require __DIR__ . '/../vendor/autoload.php';
 
 $app = AppFactory::create();
 

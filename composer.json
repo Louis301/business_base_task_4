@@ -1,9 +1,10 @@
 {
   "require": {
+      "php": "^8.2",
       "slim/slim": "^4.0",
       "slim/psr7": "^1.0",
-      "bryanjhv/slim-session": "^3.0",
-      "catfan/medoo": "^1.7"
+      "catfan/medoo": "^1.7",
+    "bryanjhv/slim-session": "^4.1"
   },
   "require-dev": {
       "phpunit/phpunit": "^9.0"
