@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель диспетчера</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Панель диспетчера</h1>
+        <a href="/create" class="btn">+ Создать заявку</a>
+        <a href="/logout" class="btn">Выйти</a>
+        
+        <label>Фильтр по статусу:</label>
+        <select id="statusFilter">
+            <option value="">Все</option>
+            <option value="new">Новые</option>
+            <option value="assigned">Назначенные</option>
+            <option value="in_progress">В работе</option>
+            <option value="done">Завершённые</option>
+            <option value="canceled">Отменённые</option>
+        </select>
+        
+        <table id="requestsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Клиент</th>
+                    <th>Проблема</th>
+                    <th>Статус</th>
+                    <th>Мастер</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="/js/app.js"></script>
+    <script>
+        loadRequests('dispatcher');
+        
+        document.getElementById('statusFilter').addEventListener('change', function() {
+            loadRequests('dispatcher', this.value);
+        });
+    </script>
+</body>
+</html>

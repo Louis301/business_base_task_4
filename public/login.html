@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в систему</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Ремонтная служба</h1>
+        <form action="/login" method="POST">
+            <label for="user_id">Выберите пользователя:</label>
+            <select name="user_id" id="user_id" required>
+                <option value="1">Диспетчер (dispatcher)</option>
+                <option value="2">Мастер 1 (master1)</option>
+                <option value="3">Мастер 2 (master2)</option>
+            </select>
+            
+            <input type="hidden" name="role" id="role" value="dispatcher">
+            <input type="hidden" name="username" id="username" value="dispatcher">
+            
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('user_id').addEventListener('change', function() {
+            const roleInput = document.getElementById('role');
+            const usernameInput = document.getElementById('username');
+            
+            if (this.value === '1') {
+                roleInput.value = 'dispatcher';
+                usernameInput.value = 'dispatcher';
+            } else {
+                roleInput.value = 'master';
+                usernameInput.value = 'master' + (this.value - 1);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+.container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+h1 { color: #333; }
+form { display: flex; flex-direction: column; gap: 10px; max-width: 400px; }
+input, select, textarea { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+button, .btn { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
+button:hover, .btn:hover { background: #0056b3; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background: #f8f9fa; }
+.status { padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+.status-new { background: #ffc107; }
+.status-assigned { background: #17a2b8; }
+.status-in_progress { background: #28a745; }
+.status-done { background: #6c757d; }
+.status-canceled { background: #dc3545; }
+#message { margin-top: 10px; padding: 10px; border-radius: 4px; }
+#message.error { background: #f8d7da; color: #721c24; }
+#message.success { background: #d4edda; color: #155724; }

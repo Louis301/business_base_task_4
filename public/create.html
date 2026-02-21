@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать заявку</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Новая заявка</h1>
+        <form id="createForm">
+            <label>Имя клиента:</label>
+            <input type="text" name="client_name" required>
+            
+            <label>Телефон:</label>
+            <input type="tel" name="phone" required>
+            
+            <label>Адрес:</label>
+            <input type="text" name="address" required>
+            
+            <label>Описание проблемы:</label>
+            <textarea name="problem_text" required></textarea>
+            
+            <button type="submit">Создать</button>
+        </form>
+        <a href="/dispatcher">← Назад к списку</a>
+        <a href="/logout">Выйти</a>
+    </div>
+    <script src="/js/app.js"></script>
+    <script>
+        document.getElementById('createForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                const response = await fetch('/api/requests', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    alert('Заявка создана!');
+                    window.location.href = '/dispatcher';
+                } else {
+                    const error = await response.json();
+                    alert('Ошибка: ' + error.error);
+                }
+            } catch (err) {
+                alert('Ошибка сети');
+            }
+        });
+    </script>
+</body>
+</html>
